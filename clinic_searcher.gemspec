@@ -5,12 +5,12 @@ require_relative "lib/clinic_searcher/version"
 Gem::Specification.new do |spec|
   spec.name = "clinic_searcher"
   spec.version = ClinicSearcher::VERSION
-  spec.authors = ["alexjabf-newsta"]
-  spec.email = ["103437153+alexjabf-newsta@users.noreply.github.com"]
+  spec.authors = ["Alejandro Ballesteros"]
+  spec.email = ["alexjabf@hotmail.com"]
 
-  spec.summary = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description = "TODO: Write a longer description or delete this line."
-  spec.homepage = "TODO: Put your gem's website or public repo URL here."
+  spec.summary = "A gem to search for nearby clinics using a zip code."
+  spec.description = "This gem provides a simple way to search for nearby clinics using a zip code by hitting a Rails app and returning the JSON data."
+  spec.homepage = "https://github.com/alexjabf/clinic_searcher"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
@@ -33,6 +33,8 @@ Gem::Specification.new do |spec|
 
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"
+  spec.add_dependency "httparty"
+  spec.add_dependency "geocoder"
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
