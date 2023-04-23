@@ -1,35 +1,67 @@
 # ClinicSearcher
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/clinic_searcher`. To experiment with that code, run `bin/console` for an interactive prompt.
+`ClinicSearcher` is a Ruby gem that provides an easy way to search for nearby clinics from FDA's  based on a given zipcode and distance. The gem interacts with a Rails API endpoint, which should be protected by an authentication token.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+Add this line to your application's Gemfile:
 
-Install the gem and add to the application's Gemfile by executing:
+```ruby
+gem 'clinic_searcher', git: "https://github.com/alexjabf/clinic_searcher.git"
+```
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+And then execute:
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+```
+$ bundle install
+```
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+Or install it yourself as:
+
+```
+$ gem install clinic_searcher, --source https://github.com/alexjabf/clinic_searcher.git
+```
+
+## Configuration
+
+Before using the gem, ensure you have the following environment variables set up:
+
+- `API_ENDPOINT`: The Rails API endpoint where the gem will send requests.
+- `API_AUTH_TOKEN`: The authentication token used in the `X-Auth-Token` header for the request.
+- `RATIO_DISTANCE` (optional): The default search radius in miles. Defaults to 20 if not set.
 
 ## Usage
 
-TODO: Write usage instructions here
+To search for clinics near a zipcode, simply call the `search` method on the `ClinicSearcher` module:
 
-## Development
+```ruby
+clinics = ClinicSearcher.search(zipcode)
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+You can also provide an optional distance parameter to override the default search radius:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```ruby
+clinics = ClinicSearcher.search(zipcode, distance)
+```
+
+The `search` method will return a parsed JSON object containing the list of clinics found within the specified distance of the given zipcode.
+
+## Testing
+
+The gem includes RSpec tests. To run the tests, execute:
+
+```
+$ bundle exec rspec
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/clinic_searcher.
+Bug reports and pull requests are welcome on GitHub at https://github.com/alexjabf/clinic_searcher.
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The gem is available as open-source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Author
+
+Alejandro Ballesteros - alexjabf@hotmail.com
