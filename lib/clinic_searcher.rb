@@ -19,7 +19,7 @@ module ClinicSearcher
       response = HTTParty.get(
         api_endpoint,
         headers: {"X-Auth-Token" => auth_token},
-        query: {zipcode:, distance:}
+        query: {zipcode: zipcode, distance: distance}
       )
       response.parsed_response
     end
