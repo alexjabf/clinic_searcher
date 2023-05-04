@@ -11,7 +11,7 @@ RSpec.describe ClinicSearcher do
     context "when required environment variables are not set" do
       before do
         allow(ENV).to receive(:[]).with("API_ENDPOINT").and_return(nil)
-        allow(ENV).to receive(:[]).with("API_AUTH_TOKEN").and_return(nil)
+        allow(ENV).to receive(:[]).with("AUTH_TOKEN").and_return(nil)
       end
 
       it "raises an error with an appropriate message" do
@@ -23,7 +23,7 @@ RSpec.describe ClinicSearcher do
     context "when required environment variables are set" do
       before do
         allow(ENV).to receive(:[]).with("API_ENDPOINT").and_return("https://example.com/api")
-        allow(ENV).to receive(:[]).with("API_AUTH_TOKEN").and_return("sample-auth-token")
+        allow(ENV).to receive(:[]).with("AUTH_TOKEN").and_return("sample-auth-token")
         allow(HTTParty).to receive(:get).and_return(double("response", parsed_response: "OK"))
       end
 

@@ -7,7 +7,7 @@ require "geocoder"
 module ClinicSearcher
   class Error < StandardError
     def message
-      "Please set up the environment variables for API_ENDPOINT and API_AUTH_TOKEN." \
+      "Please set up the environment variables for API_ENDPOINT and AUTH_TOKEN." \
         " Additionally, you may configure a RATIO_DISTANCE variable to specify the search radius."
     end
   end
@@ -31,7 +31,7 @@ module ClinicSearcher
     end
 
     def auth_token
-      ENV.fetch("API_AUTH_TOKEN", nil)
+      ENV.fetch("AUTH_TOKEN", nil)
     end
 
     def ratio_distance
@@ -40,7 +40,7 @@ module ClinicSearcher
 
     def missing_required_env_variables?
       # Check if the required environment variables are set, return true if they are missing
-      ENV["API_ENDPOINT"].nil? || ENV["API_AUTH_TOKEN"].nil?
+      ENV["API_ENDPOINT"].nil? || ENV["AUTH_TOKEN"].nil?
     end
   end
 end
