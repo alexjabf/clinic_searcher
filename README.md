@@ -27,7 +27,7 @@ $ gem install clinic_searcher, --source https://github.com/alexjabf/clinic_searc
 Before using the gem, ensure you have the following environment variables set up:
 
 - `API_ENDPOINT`: The Rails API endpoint where the gem will send requests.
-- `API_AUTH_TOKEN`: The authentication token used in the `X-Auth-Token` header for the request.
+- `AUTH_TOKEN`: The authentication token used in the `X-Auth-Token` header for the request.
 - `RATIO_DISTANCE` (optional): The default search radius in miles. Defaults to 20 if not set.
 
 ## Usage
