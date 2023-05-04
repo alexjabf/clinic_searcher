@@ -13,13 +13,13 @@ module ClinicSearcher
   end
 
   class << self
-    def search(zipcode, distance = ratio_distance)
+    def search(zip, distance = ratio_distance)
       raise Error.new.message if missing_required_env_variables?
 
       response = HTTParty.get(
         api_endpoint,
         headers: {"X-Auth-Token" => auth_token},
-        query: {zipcode: zipcode, distance: distance}
+        query: {zip: zip, distance: distance}
       )
       response.parsed_response
     end

@@ -1,6 +1,6 @@
 # ClinicSearcher
 
-`ClinicSearcher` is a Ruby gem that provides an easy way to search for nearby clinics from FDA's  based on a given zipcode and distance. The gem interacts with a Rails API endpoint, which should be protected by an authentication token.
+`ClinicSearcher` is a Ruby gem that provides an easy way to search for nearby clinics from FDA's  based on a given zip and distance. The gem interacts with a Rails API endpoint, which should be protected by an authentication token.
 
 ## Installation
 
@@ -32,19 +32,19 @@ Before using the gem, ensure you have the following environment variables set up
 
 ## Usage
 
-To search for clinics near a zipcode, simply call the `search` method on the `ClinicSearcher` module:
+To search for clinics near a zip, simply call the `search` method on the `ClinicSearcher` module:
 
 ```ruby
-clinics = ClinicSearcher.search(zipcode)
+clinics = ClinicSearcher.search(zip)
 ```
 
 You can also provide an optional distance parameter to override the default search radius:
 
 ```ruby
-clinics = ClinicSearcher.search(zipcode, distance)
+clinics = ClinicSearcher.search(zip, distance)
 ```
 
-The `search` method will return a parsed JSON object containing the list of clinics found within the specified distance of the given zipcode.
+The `search` method will return a parsed JSON object containing the list of clinics found within the specified distance of the given zip.
 
 ## Testing
 

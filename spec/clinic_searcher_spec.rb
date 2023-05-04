@@ -4,7 +4,7 @@ require "spec_helper"
 require "clinic_searcher"
 
 RSpec.describe ClinicSearcher do
-  let(:zipcode) { "12345" }
+  let(:zip) { "12345" }
   let(:distance) { 10 }
 
   describe ".search" do
@@ -16,7 +16,7 @@ RSpec.describe ClinicSearcher do
 
       it "raises an error with an appropriate message" do
         error_message = ClinicSearcher::Error.new.message
-        expect { described_class.search(zipcode, distance) }.to raise_error(error_message)
+        expect { described_class.search(zip, distance) }.to raise_error(error_message)
       end
     end
 
@@ -28,7 +28,7 @@ RSpec.describe ClinicSearcher do
       end
 
       it "returns the parsed response" do
-        expect(described_class.search(zipcode, distance)).to eq("OK")
+        expect(described_class.search(zip, distance)).to eq("OK")
       end
     end
   end
